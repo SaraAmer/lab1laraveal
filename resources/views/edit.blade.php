@@ -5,7 +5,7 @@
 
 @section('title')Index Page @endsection
 
-@section('content')>
+@section('content')
 </head>
 
 <body> 

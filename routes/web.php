@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use Illuminate\View\Component;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +20,6 @@ Route::get('/', function () {
 });
 
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::get('/create' ,[PostController::class,'create'])->name('post.create');
-    Route::get('/edit' ,[PostController::class,'edit'])->name('post.edit');
-    Route::get('/show/{post}' , [PostController::class , 'show'])->name('post.show');
-    
+    Route::get('/create', [PostController::class,'create'])->name('post.create');
+    Route::get('/edit', [PostController::class,'edit'])->name('post.edit');
+    Route::get('/show/{post}', [PostController::class , 'show'])->name('post.show');

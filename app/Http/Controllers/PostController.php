@@ -9,33 +9,29 @@ class PostController extends Controller
 {
     public function index()
     {
-      $allPosts = [
+        $allPosts = [
           ['id' => 1, 'title' => 'laravel', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20'],
           ['id' => 2, 'title' => 'PHP', 'posted_by' => 'Mohamed', 'created_at' => '2021-04-15'],
           ['id' => 3, 'title' => 'Javascript', 'posted_by' => 'Ali', 'created_at' => '2021-06-01'],
-      ]; 
-      return view('index', ['posts'=> $allPosts]);
+      ];
+        return view('index', ['posts'=> $allPosts]);
     }
     public function create()
     {
-     
-      return view('create');
+        return view('create');
     }
     public function edit()
     {
-     
-      return view('edit');
+        return view('edit');
     }
     public function show($postID)
     {
         $post = ['id' => 1, 'title' => 'laravel',
-         'description' => 'laravel is awsome framework', 'posted_by' => 'Sara', 
+         'description' => 'laravel is awsome framework', 'posted_by' => 'Sara',
          'created_at' => '2021-03-20' ,'email'=>'sara@gmail.com'];
 
         return view('show', [
             'post' => $post,
         ]);
-     
-     
     }
 }

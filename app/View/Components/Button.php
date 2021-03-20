@@ -11,9 +11,18 @@ class Button extends Component
      *
      * @return void
      */
-    public function __construct($page)
+    public $value;
+    public $class;
+    public $href;
+    public function getValue()
     {
-        
+        return $this->value;
+    }
+    public function __construct($value,$class,$href)
+    {
+        $this->value=$value;
+        $this->class=$class;
+        $this->href=$href;
     }
 
     /**
@@ -21,8 +30,27 @@ class Button extends Component
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
-    public function render($page)
+    public function render()
     {
-        return view($page);
+        return view('components.button');
+    }
+
+    public function create()
+    {
+        return view('create');
+    }
+    public function edit()
+    {
+        return view('edit');
+    }
+    public function show($postID)
+    {
+        $post = ['id' => 1, 'title' => 'laravel',
+         'description' => 'laravel is awsome framework', 'posted_by' => 'Sara',
+         'created_at' => '2021-03-20' ,'email'=>'sara@gmail.com'];
+
+        return view('show', [
+            'post' => $post,
+        ]);
     }
 }

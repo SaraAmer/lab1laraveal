@@ -11,14 +11,14 @@
         <form  method="GET" action="{{route('posts.index')}}" enctype="multipart/form-data">
             
             <div class="form-group">
-            <input type="text" class="form-control" placeholder="Title" name="name" >
+            <input type="text" class="form-control" placeholder="Title" >
             </div>
             <div class="form-group">
-                <input type="number" class="form-control" placeholder="Post creator" name="Price" >
+                <input type="number" class="form-control" placeholder="Post creator" >
                 </div> 
     
             <div class="form-group">
-                <textarea class="form-control" placeholder="description"  name="desc" ></textarea>
+                <textarea class="form-control" placeholder="description"   ></textarea>
             </div>
     
     
