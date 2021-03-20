@@ -2,9 +2,12 @@
 <html>
     <head>
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <title>dashboard</title>
-    </head>
+  
+@extends('layouts.app')
+
+@section('title')Index Page @endsection
+
+@section('content')
     
     <body>
 
@@ -38,7 +41,10 @@
                   <td>{{$post['title']}}</td>
                   <td>{{$post['posted_by']}}</td>
                   <td>{{$post['created_at']}}</td>
-                  <td><a class=" btn btn-primary mx-2" href="{{route('post.show')}}" >view</a><a class="btn btn-info mx-2" href="{{route('post.edit')}}" >Edit</a><button class="btn btn-danger"  >delete</button></td>
+                  <td><a class=" btn btn-primary mx-2" href="{{route('post.show',['post' => $post['id']])}}" >view</a>
+                  <a class="btn btn-info mx-2" href="{{route('post.edit')}}" >Edit</a>
+                  
+                  <button class="btn btn-danger"  >delete</button></td>
                 </tr>
           
   @endforeach
@@ -55,14 +61,9 @@
 
 
 
+@endsection
 
 
-
-<script src="../uploaded/js/jquery-3.3.1.slim.min.js"></script>
-<script src="../uploaded/public/js/popper.min.js"></script>
-<script src="../uploaded/public/js/bootstrap.min.js"></script>
-<script src="../uploaded/public/js/mine.js"></script>
-<script src="/uploaded/js/edit.js"></script>
 
 
 </body>

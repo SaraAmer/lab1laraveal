@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Blade;
 
 class PostController extends Controller
 {
@@ -25,9 +26,11 @@ class PostController extends Controller
      
       return view('edit');
     }
-    public function show()
+    public function show($postID)
     {
-        $post = ['id' => 1, 'title' => 'laravel', 'description' => 'laravel is awsome framework', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20'];
+        $post = ['id' => 1, 'title' => 'laravel',
+         'description' => 'laravel is awsome framework', 'posted_by' => 'Sara', 
+         'created_at' => '2021-03-20' ,'email'=>'sara@gmail.com'];
 
         return view('show', [
             'post' => $post,

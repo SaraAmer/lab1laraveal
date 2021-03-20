@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>add product</title>
+@extends('layouts.app')
+
+@section('title')Index Page @endsection
+
+@section('content')
 </head>
 <body>
 
@@ -14,10 +15,12 @@
     Post Info
   </div>
   <div class="card-body">
-    <h5 class="card-title">Title :</h5>
-    <h5>description : </h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  
+  <div>
+    <span class="card-title"> <b>Title: </b></span>
+    <span class="card-text">{{$post['title']}}</span>
+</div>
+    <span> <b> Description : </b></span>
+    <span class="card-text">{{$post['description']}}</span>
   </div>
   
 </div>
@@ -27,10 +30,21 @@
   Post Creator Info
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">{{$post['description']}}</p>
-  
+      <div>
+    <span class="card-title"><b>Name:</b></span>
+    <span class="card-text">{{$post['posted_by']}}</span>
+</div>
+<div>
+    <span class="card-title"><b>Email: </b></span>
+    <span class="card-text">{{$post['email']}}</span>
+</div>
+<div>
+    <span class="card-title"><b>Created at: </b></span>
+    <span class="card-text">{{$post['created_at']}}</span>
+</div>
   </div>
   
 </div>
 </body>
+
+@endsection

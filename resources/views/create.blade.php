@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>add product</title>
-</head>
+@extends('layouts.app')
 
+@section('title')Index Page @endsection
+
+@section('content')
 <body> 
     <div class="py-3  col-md-6 m-auto ">
    
@@ -32,5 +30,5 @@
 
   
 </body>
-
+@endsection
 </html>
