@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
@@ -8,6 +9,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production"
+        
     },
     "devDependencies": {
         "axios": "^0.21",
@@ -15,4 +17,5 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
     }
+
 }

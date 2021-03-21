@@ -54,7 +54,8 @@
       
           </table>
         </div>
-        <a class=" btn btn-success mx-2" href="{{route('post.create')}}" >Create Post</a>
+        <x-button class="btn btn-success mx-2" value="Create Post" href="{{route('post.create')}}"/></td>
+     
 </div>
 
 
