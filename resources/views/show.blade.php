@@ -34,11 +34,11 @@
     <div class="card-body">
       <div>
         <span class="card-title"><b>Name:</b></span>
-        <span class="card-text">{{$post['posted_by']}}</span>
+        <span class="card-text">{{$post->user->name}}</span>
       </div>
       <div>
         <span class="card-title"><b>Email: </b></span>
-        <span class="card-text">{{$post['email']}}</span>
+        <span class="card-text">{{$post->user->email}}</span>
       </div>
       <div>
         <span class="card-title"><b>Created at: </b></span>

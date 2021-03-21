@@ -56,6 +56,7 @@
 
 
     </table>
+    {{ $posts->links() }}
   </div>
   <x-button class="btn btn-success mx-2" value="Create Post" href="{{route('post.create')}}" />
   </td>
