@@ -25,3 +25,4 @@ Route::get('/', function () {
     Route::get('/show/{post}', [PostController::class , 'show'])->name('post.show');
     Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
+    Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('posts.destroy');

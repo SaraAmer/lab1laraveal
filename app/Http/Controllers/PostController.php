@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use App\Models\Post;
 use App\Models\User;
+use Carbon\Carbon;
 
 class PostController extends Controller
 {
@@ -50,6 +51,13 @@ class PostController extends Controller
         $post->description=$request->description;
         $post->user_id=$request->user_id;
         $post->save();
+        return redirect()->route('posts.index');
+    }
+    public function destroy($postID)
+    {
+      
+        // $post = Post::find($postID);
+        Post::where('id', $postID)->delete();
         return redirect()->route('posts.index');
     }
 }
