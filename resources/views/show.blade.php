@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-@extends('layouts.app')
+  @extends('layouts.app')
 
-@section('title')Index Page @endsection
+  @section('title')Index Page @endsection
 
-@section('content')
+  @section('content')
 </head>
+
 <body>
 
 
-<div class="card">
-  <div class="card-header">
-    Post Info
-  </div>
-  <div class="card-body">
-  <div>
-    <span class="card-title"> <b>Title: </b></span>
-    <span class="card-text">{{$post['title']}}</span>
-</div>
-    <span> <b> Description : </b></span>
-    <span class="card-text">{{$post['description']}}</span>
-  </div>
-  
-</div>
-
-<div class="card">
-  <div class="card-header">
-  Post Creator Info
-  </div>
-  <div class="card-body">
+  <div class="card">
+    <div class="card-header">
+      Post Info
+    </div>
+    <div class="card-body">
       <div>
-    <span class="card-title"><b>Name:</b></span>
-    <span class="card-text">{{$post['posted_by']}}</span>
-</div>
-<div>
-    <span class="card-title"><b>Email: </b></span>
-    <span class="card-text">{{$post['email']}}</span>
-</div>
-<div>
-    <span class="card-title"><b>Created at: </b></span>
-    <span class="card-text">{{$post['created_at']}}</span>
-</div>
+        <span class="card-title"> <b>Title: </b></span>
+        <span class="card-text">{{$post['title']}}</span>
+      </div>
+      <span> <b> Description : </b></span>
+      <span class="card-text">{{$post['description']}}</span>
+    </div>
+
   </div>
-  
-</div>
+
+  <div class="card">
+    <div class="card-header">
+      Post Creator Info
+    </div>
+    <div class="card-body">
+      <div>
+        <span class="card-title"><b>Name:</b></span>
+        <span class="card-text">{{$post['posted_by']}}</span>
+      </div>
+      <div>
+        <span class="card-title"><b>Email: </b></span>
+        <span class="card-text">{{$post['email']}}</span>
+      </div>
+      <div>
+        <span class="card-title"><b>Created at: </b></span>
+        <span class="card-text">{{$post['created_at']}}</span>
+      </div>
+    </div>
+
+  </div>
 </body>
 
 @endsection

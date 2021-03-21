@@ -21,8 +21,12 @@ class PostController extends Controller
     public function edit($postID)
     {
         $post = Post::find($postID);
+     
         return view('edit', [
-            'post' => $post]);
+            'post' => $post
+            ,
+            'users' => User::all()
+            ]);
     }
     public function show($postID)
     {
@@ -36,6 +40,15 @@ class PostController extends Controller
     {
         $requestData=$request->all();
         Post::create($requestData);
+        return redirect()->route('posts.index');
+    }
+    public function update(Request $request, $postID)
+    {
+        $post = Post::find($postID);
+        $post->title = $request->title;
+        $post->description=$request->description;
+        $post->user_id=$request->user_id;
+        $post->save();
         return redirect()->route('posts.index');
     }
 }
