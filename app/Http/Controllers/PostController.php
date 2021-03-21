@@ -4,34 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
+use App\Models\Post;
+use App\Models\User;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $allPosts = [
-          ['id' => 1, 'title' => 'laravel', 'posted_by' => 'Ahmed', 'created_at' => '2021-03-20'],
-          ['id' => 2, 'title' => 'PHP', 'posted_by' => 'Mohamed', 'created_at' => '2021-04-15'],
-          ['id' => 3, 'title' => 'Javascript', 'posted_by' => 'Ali', 'created_at' => '2021-06-01'],
-      ];
+        $allPosts = Post::all();
         return view('index', ['posts'=> $allPosts]);
     }
     public function create()
     {
-        return view('create');
+        return view('create', ['users' => User::all()]);
     }
-    public function edit()
+    public function edit($postID)
     {
-        return view('edit');
+        $post = Post::find($postID);
+        return view('edit', [
+            'post' => $post]);
     }
     public function show($postID)
     {
-        $post = ['id' => 1, 'title' => 'laravel',
-         'description' => 'laravel is awsome framework', 'posted_by' => 'Sara',
-         'created_at' => '2021-03-20' ,'email'=>'sara@gmail.com'];
+        $post = Post::find($postID);
 
         return view('show', [
             'post' => $post,
         ]);
+    }
+    public function store(Request $request)
+    {
+        $requestData=$request->all();
+        Post::create($requestData);
+        return redirect()->route('posts.index');
     }
 }
