@@ -12,14 +12,14 @@
 <body>
     <div class="py-3  col-md-6 m-auto ">
 
-        <form method="POST" action="{{route('posts.update',['post' => $post['id']])}})}}" >
-        @csrf
-        <input type="hidden" name="_method" value="put" />
+        <form method="POST" action="{{route('posts.update',['post' => $post['id']])}})}}">
+            @csrf
+            <input type="hidden" name="_method" value="put" />
 
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Title" name="title" value="{{$post['title']}}">
             </div>
-          
+
             <div class="form-group">
                 <label for="post_creator">Post Creator</label>
                 <select name="user_id" class="form-control" id="post_creator">

@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $allPosts = Post::all();
-        $allPosts=Post::paginate(1);
+        $allPosts=Post::paginate(15);
         return view('index', ['posts'=> $allPosts]);
     }
     public function create()
