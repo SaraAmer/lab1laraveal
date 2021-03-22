@@ -32,10 +32,9 @@ class PostController extends Controller
             'users' => User::all()
             ]);
     }
-    public function show($postID)
+    public function show($slug)
     {
-        $post = Post::find($postID);
-      
+        $post = Post::where('slug', $slug)->first();
         return view('show', [
             'post' => $post,
         ]);
@@ -43,6 +42,7 @@ class PostController extends Controller
     public function store(StorePostRequest  $request)
     {
         $requestData=$request->all();
+        $path = Storage::putFile('avatars', $request->file('avatar'));
         Post::create($requestData);
         return redirect()->route('posts.index');
     }
