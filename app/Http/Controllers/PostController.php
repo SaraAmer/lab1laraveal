@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\Blade;
 use App\Models\Post;
 use App\Models\User;
@@ -33,18 +35,18 @@ class PostController extends Controller
     public function show($postID)
     {
         $post = Post::find($postID);
-
+      
         return view('show', [
             'post' => $post,
         ]);
     }
-    public function store(Request $request)
+    public function store(StorePostRequest  $request)
     {
         $requestData=$request->all();
         Post::create($requestData);
         return redirect()->route('posts.index');
     }
-    public function update(Request $request, $postID)
+    public function update(UpdatePostRequest $request, $postID)
     {
         $post = Post::find($postID);
         $post->title = $request->title;
@@ -57,6 +59,7 @@ class PostController extends Controller
     {
       
         // $post = Post::find($postID);
+     
         Post::where('id', $postID)->delete();
         return redirect()->route('posts.index');
     }

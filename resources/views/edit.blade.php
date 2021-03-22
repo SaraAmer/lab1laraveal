@@ -11,7 +11,15 @@
 
 <body>
     <div class="py-3  col-md-6 m-auto ">
-
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <form method="POST" action="{{route('posts.update',['post' => $post['id']])}})}}">
             @csrf
             <input type="hidden" name="_method" value="put" />

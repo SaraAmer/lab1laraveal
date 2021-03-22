@@ -46,11 +46,12 @@
               href="{{route('post.show',['post' => $post['id']])}}" />
             <x-button value="Edit" class="btn btn-info mx-2" href="{{route('post.edit' , ['post' => $post['id']])}}" />
 
-            <a class="btn btn-danger" data-method="DELETE" onclick="deletePost() " href="">delete</a>
-            <form id="delete-form" action="{{route('posts.destroy' , ['post' => $post['id']])}}" method="POST"
-              style="display: none;">
+
+            <form id="delete-form" method="POST" action="{{route('posts.destroy' , ['post' => $post['id']])}}"
+              style="display:inline-block;">
               @csrf
               @method('DELETE')
+              <input type="submit" class="btn btn-danger" value="delete" onclick="return confirm('Are you sure?')">
             </form>
           </td>
         </tr>
