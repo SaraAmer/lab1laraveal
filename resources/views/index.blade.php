@@ -43,7 +43,7 @@
           <td>{{Carbon\Carbon::parse($post->created_at)->Format('Y-m-d')}} </td>
           <td>
             <x-button class=" btn btn-primary mx-2" value="view"
-              href="{{route('post.show',['post' => $post['id']])}}" />
+              href="{{route('post.show',['post' => $post['id'] , 'slug' => $post['slug']])}}" />
             <x-button value="Edit" class="btn btn-info mx-2" href="{{route('post.edit' , ['post' => $post['id']])}}" />
 
 
