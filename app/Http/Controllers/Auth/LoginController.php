@@ -48,7 +48,7 @@ class LoginController extends Controller
         // try {
         $user = Socialite::driver('google')->user();
   
-        $finduser = User::where('google_id', $user->id)->first();
+        $finduser = User::where('email', $user->email)->first();
       
         if ($finduser) {
             Auth::login($finduser);
@@ -75,7 +75,7 @@ class LoginController extends Controller
     {
         $user = Socialite::driver('github')->user();
       
-        $finduser = User::where('git_id', $user->id)->first();
+        $finduser = User::where('email', $user->email)->first();
       
         if ($finduser) {
             Auth::login($finduser);
