@@ -30,3 +30,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/auth/github/redirect', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+    dd($user);
+    // $user->token
+});
+
+Route::get('/auth/google/redirect', function () {
+    return Socialite::driver('google')
+    ->with(['hd' => 'gmail.com'])
+    ->redirect();
+});
+Route::get('/auth/google/callback', function () {
+    $user = Socialite::driver('google')->user();
+    dd($user);
+    // $user->token
+});

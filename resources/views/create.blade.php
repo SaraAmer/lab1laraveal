@@ -25,7 +25,11 @@
                 <input type="text" class="form-control" placeholder="Title" name="title">
             </div>
 
+            <div class="custom-file form-group">
+                <input type="file" name="myImg">
 
+
+            </div>
             <div class="form-group">
                 <textarea class="form-control" placeholder="description" name="description"></textarea>
             </div>
@@ -47,5 +51,7 @@
 
 </body>
 @endsection
+
+
 
 </html>

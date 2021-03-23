@@ -45,6 +45,11 @@
         <span class="card-text">{{$post['created_at']}}</span>
       </div>
     </div>
+    <div>
+      <img src=" {{asset('../../storage/app/avatars/'.$post->myImg )}}" />
+
+    </div>
+  </div>
 
   </div>
 </body>

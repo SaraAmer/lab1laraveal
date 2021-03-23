@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
@@ -41,10 +42,25 @@ class PostController extends Controller
     }
     public function store(StorePostRequest  $request)
     {
-        $requestData=$request->all();
-        $path = Storage::putFile('avatars', $request->file('avatar'));
-        Post::create($requestData);
+        $post = new Post;
+        
+        $file = $request->file('myImg')->storeAs(
+            'avatars',
+            time().$request->file('myImg')->getClientOriginalName()
+        );
+        
+       
+      
+        $name=time().$request->file('myImg')->getClientOriginalName();
+        
+        $post->title = $request->title;
+        $post->description=$request->description;
+        $post->user_id=$request->user_id;
+        $post->myImg=$name;
+        $post->save();
         return redirect()->route('posts.index');
+        // Post::create($requestData);
+        // return redirect()->route('posts.index');
     }
     public function update(UpdatePostRequest $request, $postID)
     {
