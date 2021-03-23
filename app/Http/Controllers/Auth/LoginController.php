@@ -74,7 +74,7 @@ class LoginController extends Controller
     public function handleGitCallback()
     {
         $user = Socialite::driver('github')->user();
-        dd($user);
+      
         $finduser = User::where('git_id', $user->id)->first();
       
         if ($finduser) {
@@ -83,7 +83,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         } else {
             $newUser = User::create([
-                    'name' => $user->name,
+                    'name' => $user->nickname,
                     'email' => $user->email,
                     'google_id'=> $user->id,
                     'password'=>$user->id
