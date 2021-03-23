@@ -5,7 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Socialite;
+use App\Models\User;
+   
 class LoginController extends Controller
 {
     /*
@@ -36,5 +40,58 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+ 
+   
+    public function handleGoogleCallback()
+    {
+        // try {
+        $user = Socialite::driver('google')->user();
+  
+        $finduser = User::where('google_id', $user->id)->first();
+      
+        if ($finduser) {
+            Auth::login($finduser);
+            
+            return redirect()->route('home');
+        } else {
+            $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'google_id'=> $user->id,
+                    'password'=>$user->id
+                ]);
+  
+            Auth::login($newUser);
+   
+            return redirect()->route('home');
+            //     }
+        // } catch (Exception $e) {
+        //     return redirect('auth/google/redirect');
+        // }
+        }
+    }
+    public function handleGitCallback()
+    {
+        $user = Socialite::driver('github')->user();
+        dd($user);
+        $finduser = User::where('git_id', $user->id)->first();
+      
+        if ($finduser) {
+            Auth::login($finduser);
+            
+            return redirect()->route('home');
+        } else {
+            $newUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'google_id'=> $user->id,
+                    'password'=>$user->id
+                ]);
+  
+            Auth::login($newUser);
+   
+            return redirect()->route('home');
+        }
     }
 }
