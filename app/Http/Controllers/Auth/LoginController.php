@@ -45,7 +45,6 @@ class LoginController extends Controller
    
     public function handleGoogleCallback()
     {
-        // try {
         $user = Socialite::driver('google')->user();
   
         $finduser = User::where('email', $user->email)->first();
@@ -65,10 +64,6 @@ class LoginController extends Controller
             Auth::login($newUser);
    
             return redirect()->route('home');
-            //     }
-        // } catch (Exception $e) {
-        //     return redirect('auth/google/redirect');
-        // }
         }
     }
     public function handleGitCallback()
